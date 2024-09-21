@@ -109,7 +109,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in importData!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
@@ -152,7 +152,7 @@ export class MoviesService extends BaseService {
     try {
       client = await this.getClient();
 
-      if (!client.isLive()) {
+      if (!client?.isLive()) {
         throw new Error('Client is not live!');
       }
       const collection = client.collections.get(collectionName);
@@ -169,7 +169,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in bm25Query!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
@@ -200,7 +200,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in bm25Query!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
@@ -233,7 +233,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in nearTextWhereQuery!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
@@ -262,7 +262,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in generativeSearchQuery!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
@@ -291,7 +291,7 @@ export class MoviesService extends BaseService {
       console.error(error);
       throw new Error('Something went wrong in generativeSearchGroupedQuery!');
     } finally {
-      this.client.close();
+      client?.close();
     }
   }
 
