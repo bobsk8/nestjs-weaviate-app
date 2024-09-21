@@ -4,7 +4,7 @@ import weaviate, {
 } from 'weaviate-client';
 
 export abstract class BaseService {
-  protected client: WeaviateClient;
+  private client: WeaviateClient;
 
   constructor(private collectionConfig: CollectionConfigCreate) {}
 
