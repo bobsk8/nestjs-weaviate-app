@@ -1,73 +1,87 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# NestJS Weaviate App
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This application is an API built with [NestJS](https://nestjs.com/), integrating the [Weaviate](https://weaviate.io/) vector database with [OpenAI](https://openai.com/) services. The goal of this project is to provide an efficient interface for managing vector data, enabling fast queries and seamless integration with AI models.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **Weaviate**: A vector search engine powered by machine learning, designed for managing and searching through large datasets.
+- **OpenAI Integration**: Utilizes OpenAI's models for advanced language processing, enhancing the capabilities of vector data operations.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Prerequisites
+
+Before running the application, ensure you have the following:
+
+- Node.js (v18.x or higher)
+- NPM or Yarn
+- A running instance of Weaviate (local or cloud)
+- Docker Compose (local only)
+- OpenAI API Key
 
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+1. Clone the repository:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/bobsk8/nestjs-weaviate-app.git
+cd nestjs-weaviate-app
 ```
 
-## Test
+2. Install dependencies:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Support
+3. Set up environment variables by creating a .env file at the root of the project with the following keys:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+WEAVIATE_HOST=<your_weaviate_instance>
+OPENAI_API_KEY=<your_openai_api_key>
+```
 
-## Stay in touch
+4. Running instance of Weaviate:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+docker compose up -d
+```
 
-## License
+5. Run the application:
 
-Nest is [MIT licensed](LICENSE).
+```bash
+npm run start
+```
+
+The Swagger will be available at http://localhost:3000/api#/
+
+### Usage
+
+#### Vector Data Management
+
+- <b>Create Collection:</b> Create Weaviate collection by sending a POST request to http://localhost:3000/movies/create-collection
+- <b>Add data:</b> Upload data to Weaviate by sending a POST request to http://localhost:3000/movies/movies/import-data
+
+### AI Integration
+
+- <b>Text Processing:</b> Use OpenAI models for tasks like text generation, summarization and embeddings.
+
+### Technologies
+
+- <b>NestJS:</b> Backend framework
+- <b>Weaviate:</b> Vector database
+- <b>OpenAI API:</b> Language models for processing
+
+## Weaviate javascript doc
+
+https://weaviate.io/developers/academy/js/set_up_typescript
+
+## Tags
+
+- **nestjs**
+- **weaviate**
+- **openai**
+- **ai** and **machine learning**
+- **vector search** and **semantic search**
+- **node.js**
+- **api**
+- **typescript**
