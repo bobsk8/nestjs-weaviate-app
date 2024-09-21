@@ -54,7 +54,7 @@ npm run start
 
 The Swagger will be available at http://localhost:3000/api#/
 
-### Usage
+## Usage
 
 #### Vector Data Management
 
